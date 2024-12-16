@@ -9,7 +9,7 @@
     <seed>12345</seed>
   </prng>
   <ffsocket name='dmff' mode='unix'>
-    <address> unix_dmff </address>
+    <address> unix_dmff_3017278 </address>
   </ffsocket>
   <system>
     <initialize nbeads='1'>

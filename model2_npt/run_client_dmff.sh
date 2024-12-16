@@ -14,6 +14,6 @@ addr=unix_dmff
 port=1234
 socktype=unix
 
-python ./client_dmff.py 512h2o_277cmd.pdb forcefield.xml residues.xml params_eann_2.pickle  $addr $port $socktype 
+python ./client_dmff_nm.py 512h2o_277cmd.pdb forcefield.xml residues.xml $addr $port $socktype 
 
 

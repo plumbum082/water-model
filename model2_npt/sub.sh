@@ -1,9 +1,14 @@
 #!/bin/bash
 #SBATCH --export=ALL
-#SBATCH --job-name=eanncmd0
+#SBATCH --job-name=m2
 #SBATCH -N 1 -c 2
-#SBATCH --gres=gpu:1
+#SBATCH -p gpu_4090 --gres=gpu:1
 #SBATCH -o out -e err
+
+module load cuda/11.8
+module load cudnn/8.6.0_cuda11.x
+module load anaconda/2020.11
+source activate dmff_1.0
 
 export OPENMM_CPU_THREADS=1
 export OMP_NUM_THREADS=1

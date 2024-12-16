@@ -476,9 +476,13 @@ def onebody_kernel(x1, x2, x3, Va, Vb, efac):
     #list1 = jnp.array([x1**i for i in range(-1, 15)])
     #list2 = jnp.array([x2**i for i in range(-1, 15)])
     #list3 = jnp.array([x3**i for i in range(-1, 15)])
-    list1 = jnp.array([x1**i for i in a])
-    list2 = jnp.array([x2**i for i in a])
-    list3 = jnp.array([x3**i for i in a])
+    # list1 = jnp.array([x1**i for i in a])
+    # list2 = jnp.array([x2**i for i in a])
+    # list3 = jnp.array([x3**i for i in a])
+    thresh = 1e-8 
+    list1 = jnp.array([(jnp.piecewise(x1, [(i == 0) & (x1 < thresh), (i !=0 ) | (x1 >= thresh)], [lambda x: jnp.array(thresh),lambda x: x]))**i for i in a])
+    list2 = jnp.array([(jnp.piecewise(x2, [(i == 0) & (x2 < thresh), (i !=0 ) | (x2 >= thresh)], [lambda x: jnp.array(thresh),lambda x: x]))**i for i in a])
+    list3 = jnp.array([(jnp.piecewise(x3, [(i == 0) & (x3 < thresh), (i !=0 ) | (x3 >= thresh)], [lambda x: jnp.array(thresh),lambda x: x]))**i for i in a])
     fmat = jnp.array([list1, list2, list3])
     fmat *= CONST
     F1 = jnp.sum(fmat[0].T * matrix1, axis=1) # fmat[0][inI] 1*245

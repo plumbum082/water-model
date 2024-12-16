@@ -36,5 +36,8 @@
    <Polarize type="380" polarizabilityXX="1.1249e-03" polarizabilityYY="1.1249e-03" polarizabilityZZ="1.1249e-03" thole="0.33"/>
    <Polarize type="381" polarizabilityXX="2.6906e-04" polarizabilityYY="2.6906e-04" polarizabilityZZ="2.6906e-04" thole="0.33"/>
  </ADMPPmeForce>
-</ForceField>
 
+ <EANNForce file="params_eann_2_no_list.pickle" pdb="512h2o_277cmd.pdb" ngto="12" nipsin="2" rc="4"/>
+</ForceField> 
+
+ 
