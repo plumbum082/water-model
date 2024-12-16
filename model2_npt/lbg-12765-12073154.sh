@@ -1,1 +1,0 @@
-bash sub.sh
